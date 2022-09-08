@@ -155,10 +155,13 @@ button:hover {
         display: block;
     }
     100% {
-        transform: translateY(-30px) scale(1.4, 1.4);
+        transform: translateY(-25px) scale(1.4, 1.4);
         opacity: 0;
         display: none;
     }
+}
+.one {
+    position: relative;
 }
 .stats {
     width: 100%;
@@ -585,6 +588,10 @@ h3 {
             opacity: 0;
             display: none;
         }
+    }
+    .one {
+        position: absolute;
+        top: -13px;
     }
     .stats {
         width: 100%;
