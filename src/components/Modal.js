@@ -23,7 +23,7 @@ export default function Modal(props) {
                     onClick={props.handleClick}
                 />
                 <h2 style={bottom}>Back this project</h2>
-                <p>Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?</p>
+                <p style={{lineHeight: "25px"}}>Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?</p>
                 <div className="choose--pledge">
                     <div className="choose--pledge--top">
                         <div className="check--circle"></div>
