@@ -11,7 +11,7 @@ export default function Main() {
     const [bookmark, setBookmark] = useState(false)
 
     function handleBookmark() {
-        setBookmark(prevState => !prevState)
+        setBookmark(true)
         setOpenModalComplete(prevState => !prevState)
     }
 
@@ -23,7 +23,7 @@ export default function Main() {
     }
 
     //to toggle the modal
-    const [openModal, setOpenModal] = useState(true)
+    const [openModal, setOpenModal] = useState(false)
 
     function handleModal() {
         setOpenModal(prevState => !prevState)
@@ -65,6 +65,67 @@ export default function Main() {
         setBlack(prevState => !prevState)
         setBamboo(false)
     }
+
+    //to pledge $25 or above and increase the backed count by 1 and increase total money raised by the value
+    const [backed, setBacked] = React.useState(5007)
+    const [totalRaised, setTotalRaised] = React.useState(80915)
+    const [totalBambooLeft, setTotalBambooLeft] = React.useState(101)
+
+    const [bambooInput, setBambooInput] = React.useState({
+        pledge: 25
+    })
+    const changeMoney = (event) => {
+        const {name, value} = event.target
+        setBambooInput((prevState) => {
+            return {
+                ...prevState,
+                [name]: value
+            }
+        })
+    }
+
+    function handleBambooSelect() {
+        setTotalBambooLeft((count) => {
+            return count - 1
+        })
+        setBacked((count) => {
+            return count + 1
+        })
+        setTotalRaised((amount) => {
+            return parseInt(amount) + parseInt(bambooInput.pledge)
+        })
+        setOpenModalComplete(prevState => !prevState)
+        setOpenModal(prevState => !prevState)
+    }
+
+    //to pledge $75 or above and increase the backed count by 1 and increase total money raised by the value
+    const [totalBlackLeft, setTotalBlackLeft] = React.useState(64)
+    const [blackBambooInput, setBlackBambooInput] = React.useState({
+        blackPledge: 75
+    })
+    const changeBlackMoney = (event) => {
+        const {name, value} = event.target
+        setBlackBambooInput((prevState) => {
+            return {
+                ...prevState,
+                [name]: value
+            }
+        })
+    }
+
+    function handleBlackSelect() {
+        setTotalBlackLeft((count) => {
+            return count - 1
+        })
+        setBacked((count) => {
+            return count + 1
+        })
+        setTotalRaised((amount) => {
+            return parseInt(amount) + parseInt(blackBambooInput.blackPledge)
+        })
+        setOpenModalComplete(prevState => !prevState)
+        setOpenModal(prevState => !prevState)
+    }
     return (
         <main>
             <section className="top--section"></section>
@@ -79,6 +140,16 @@ export default function Main() {
                         handleBamboo={handleBamboo}
                         black={black}
                         handleBlack={handleBlack}
+                        name="pledge"
+                        value={bambooInput.pledge}
+                        handleBambooSelect={handleBambooSelect}
+                        changeMoney={changeMoney}
+                        nameBlack="blackPledge"
+                        valueBlack={blackBambooInput.pledge}
+                        handleBlackSelect={handleBlackSelect}
+                        changeBlackMoney={changeBlackMoney}
+                        totalBambooLeft={totalBambooLeft}
+                        totalBlackLeft={totalBlackLeft}
                     />
                 }
                 {
@@ -106,11 +177,11 @@ export default function Main() {
                 <div className="each--box">
                     <div className="stats">
                         <div className="stats--box">
-                            <h3>$89,914</h3>
+                            <h3>${totalRaised}</h3>
                             <p>of $100,000 backed</p>
                         </div>
                         <div className="stats--box stats--box2">
-                            <h3>5,007</h3>
+                            <h3>{backed}</h3>
                             <p>total backers</p>
                         </div>
                         <div className="stats--box">
@@ -118,7 +189,7 @@ export default function Main() {
                             <p>days left</p>
                         </div>
                     </div>
-                    <progress className="progress" value="78" max="100"></progress>
+                    <progress className="progress" value={totalRaised} max="100000"></progress>
                 </div>
 
                 <div className="each--box">
@@ -143,7 +214,7 @@ export default function Main() {
                         </p>
                         <div className="count--div">
                             <div>
-                                <h3>101</h3>
+                                <h3>{totalBambooLeft}</h3>
                                 <p>left</p>
                             </div>
                             <button onClick={selectBamboo} className="pledge--btn">Select Reward</button>
@@ -161,7 +232,7 @@ export default function Main() {
                         </p>
                         <div className="count--div">
                             <div>
-                                <h3>64</h3>
+                                <h3>{totalBlackLeft}</h3>
                                 <p>left</p>
                             </div>
                             <button onClick={selectBlack} className="pledge--btn">Select Reward</button>

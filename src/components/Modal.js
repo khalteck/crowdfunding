@@ -50,7 +50,7 @@ export default function Modal(props) {
                                 <h5 onClick={props.handleBamboo} style={{marginBottom: "18px", marginRight: "20px"}} className="select--pledge">Bamboo Stand</h5>
                                 <h5 style={{marginRight: "auto"}}>Pledge $25 or more</h5>
                                 <div>
-                                    <h3>101</h3>
+                                    <h3>{props.totalBambooLeft}</h3>
                                     <p>left</p>
                                 </div>
                             </div>
@@ -64,10 +64,13 @@ export default function Modal(props) {
                         <p style={{marginRight: "auto"}}>Enter your pledge</p>
                         <input 
                             className="pledge--input"
-                            type="text"
+                            type="number"
                             placeholder="$25"
+                            name={props.name}
+                            value={props.value}
+                            onChange={props.changeMoney}
                         />
-                        <button onClick={props.handleComplete} >Continue</button>
+                        <button onClick={props.handleBambooSelect} >Continue</button>
                     </div> : null}
                 </div>
                 <div className="choose--pledge" style={props.black ? {border: "2px solid #3eb3ad"} : null}>
@@ -78,7 +81,7 @@ export default function Modal(props) {
                                 <h5 onClick={props.handleBlack} style={{marginBottom: "18px", marginRight: "20px"}} className="select--pledge">Black Edition Stand</h5>
                                 <h5 style={{marginRight: "auto"}}>Pledge $75 or more</h5>
                                 <div>
-                                    <h3>64</h3>
+                                    <h3>{props.totalBlackLeft}</h3>
                                     <p>left</p>
                                 </div>
                             </div>
@@ -92,10 +95,13 @@ export default function Modal(props) {
                         <p style={{marginRight: "auto"}}>Enter your pledge</p>
                         <input 
                             className="pledge--input"
-                            type="text"
+                            type="number"
                             placeholder="$75"
+                            name={props.nameBlack}
+                            value={props.valueBlack}
+                            onChange={props.changeBlackMoney}
                         />
-                        <button onClick={props.handleComplete} >Continue</button>
+                        <button onClick={props.handleBlackSelect} >Continue</button>
                     </div> : null}
                 </div>
                 <div className="choose--pledge trans choose--pledge--top">
