@@ -7,6 +7,7 @@ import Modal from "./Modal"
 import ModalComplete from "./Modal-complete"
 
 export default function Main() {
+    //to set the bookmarked indicator
     const [bookmark, setBookmark] = useState(false)
 
     function handleBookmark() {
@@ -21,16 +22,48 @@ export default function Main() {
         marginBottom: "40px"
     }
 
-    const [openModal, setOpenModal] = useState(false)
+    //to toggle the modal
+    const [openModal, setOpenModal] = useState(true)
 
     function handleModal() {
         setOpenModal(prevState => !prevState)
+        setBamboo(false)
+        setBlack(false)
     }
 
+    //to bring up the thank you moday
     const [openModalComplete, setOpenModalComplete] = React.useState(false)
     function handleModalComplete() {
         setOpenModalComplete(prevState => !prevState)
         setOpenModal(prevState => !prevState)
+    }
+
+    //to select bamboo stand and pledge $25
+    const [bamboo, setBamboo] = React.useState(false)
+    function handleBamboo() {
+        setBamboo(prevState => !prevState)
+        setBlack(false)
+    }
+
+    //to select black edition stand and pledge $75
+    const [black, setBlack] = React.useState(false)
+    function handleBlack() {
+        setBlack(prevState => !prevState)
+        setBamboo(false)
+    }
+
+    //when the bamboo select reward is clicked
+    function selectBamboo() {
+        setOpenModal(prevState => !prevState)
+        setBamboo(prevState => !prevState)
+        setBlack(false)
+    }
+
+    //when the black edition select reward is clicked
+    function selectBlack() {
+        setOpenModal(prevState => !prevState)
+        setBlack(prevState => !prevState)
+        setBamboo(false)
     }
     return (
         <main>
@@ -42,6 +75,10 @@ export default function Main() {
                     <Modal 
                         handleClick={handleModal}
                         handleComplete={handleModalComplete}
+                        bamboo={bamboo}
+                        handleBamboo={handleBamboo}
+                        black={black}
+                        handleBlack={handleBlack}
                     />
                 }
                 {
@@ -109,7 +146,7 @@ export default function Main() {
                                 <h3>101</h3>
                                 <p>left</p>
                             </div>
-                            <button className="pledge--btn">Select Reward</button>
+                            <button onClick={selectBamboo} className="pledge--btn">Select Reward</button>
                         </div>
                     </div>
 
@@ -127,7 +164,7 @@ export default function Main() {
                                 <h3>64</h3>
                                 <p>left</p>
                             </div>
-                            <button className="pledge--btn">Select Reward</button>
+                            <button onClick={selectBlack} className="pledge--btn">Select Reward</button>
                         </div>
                     </div>
 

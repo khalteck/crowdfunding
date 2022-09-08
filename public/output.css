@@ -277,14 +277,34 @@ h3 {
 }
 .choose--pledge {
     width: 100%;
-    padding: 28px;
     margin-top: 25px;
-    display: flex;
-    gap: 25px;
     border: 2px solid #e2e8f0;
     border-radius: 10px;
+    position: relative;
+}
+.choose--pledge--top {
+    width: 100%;
+    padding: 28px;
+    display: flex;
+    gap: 25px;
     line-height: 25px;
     position: relative;
+}
+.choose--pledge--bottom {
+    width: 100%;
+    padding: 28px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-top: 2px solid #e2e8f0;
+}
+.pledge--input {
+    width: 100px;
+    height: fit-content;
+    padding: 17px 35px;
+    border: 1px solid #3eb3ad;
+    border-radius: 40px;
+    outline: #3eb3ad;
 }
 .check--circle {
     width: 48px;
@@ -292,6 +312,15 @@ h3 {
     border-radius: 100%;
     border: 1px solid #3eb3ad;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    background-color: #3eb3ad;
 }
 .select--pledge {
     color: black;

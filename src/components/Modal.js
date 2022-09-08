@@ -25,50 +25,80 @@ export default function Modal(props) {
                 <h2 style={bottom}>Back this project</h2>
                 <p>Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?</p>
                 <div className="choose--pledge">
-                    <div className="check--circle"></div>
-                    <div>
-                        <h5 onClick={props.handleComplete} style={{marginBottom: "18px"}} className="select--pledge">Pledge with no reward</h5>
-                        <p>
-                            Choose to support us without a reward if you simply believe in our project. As a backer, 
-                            you will be signed up to receive product updates via email.
-                        </p>
-                    </div>
-                </div>
-                <div className="choose--pledge">
-                    <div className="check--circle"></div>
-                    <div>
-                        <div className="pledge--heading">
-                            <h5 style={{marginBottom: "18px", marginRight: "20px"}} className="select--pledge">Bamboo Stand</h5>
-                            <h5 style={{marginRight: "auto"}}>Pledge $25 or more</h5>
-                            <div>
-                                <h3>101</h3>
-                                <p>left</p>
-                            </div>
+                    <div className="choose--pledge--top">
+                        <div className="check--circle"></div>
+                        <div>
+                            <h5 
+                                onClick={props.handleComplete} 
+                                style={{marginBottom: "18px"}} 
+                                className="select--pledge"
+                            >
+                                Pledge with no reward
+                            </h5>
+                            <p>
+                                Choose to support us without a reward if you simply believe in our project. As a backer, 
+                                you will be signed up to receive product updates via email.
+                            </p>
                         </div>
-                        <p>
-                            You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and
-                            you’ll be added to a special Backer member list.
-                        </p>
                     </div>
                 </div>
-                <div className="choose--pledge">
-                    <div className="check--circle"></div>
-                    <div>
-                        <div className="pledge--heading">
-                            <h5 style={{marginBottom: "18px", marginRight: "20px"}} className="select--pledge">Black Edition Stand</h5>
-                            <h5 style={{marginRight: "auto"}}>Pledge $75 or more</h5>
-                            <div>
-                                <h3>64</h3>
-                                <p>left</p>
+                <div className="choose--pledge" style={props.bamboo ? {border: "2px solid #3eb3ad"} : null}>
+                    <div className="choose--pledge--top">
+                        <div onClick={props.handleBamboo} className="check--circle">{props.bamboo ? <div className="dot"></div> : null}</div>
+                        <div>
+                            <div className="pledge--heading">
+                                <h5 onClick={props.handleBamboo} style={{marginBottom: "18px", marginRight: "20px"}} className="select--pledge">Bamboo Stand</h5>
+                                <h5 style={{marginRight: "auto"}}>Pledge $25 or more</h5>
+                                <div>
+                                    <h3>101</h3>
+                                    <p>left</p>
+                                </div>
                             </div>
+                            <p>
+                                You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and
+                                you’ll be added to a special Backer member list.
+                            </p>
                         </div>
-                        <p>
-                            You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer
-                             member list. Shipping is included.
-                        </p>
                     </div>
+                    { props.bamboo ? <div className="choose--pledge--bottom">
+                        <p style={{marginRight: "auto"}}>Enter your pledge</p>
+                        <input 
+                            className="pledge--input"
+                            type="text"
+                            placeholder="$25"
+                        />
+                        <button onClick={props.handleComplete} >Continue</button>
+                    </div> : null}
                 </div>
-                <div className="choose--pledge trans">
+                <div className="choose--pledge" style={props.black ? {border: "2px solid #3eb3ad"} : null}>
+                    <div className="choose--pledge--top">
+                        <div onClick={props.handleBlack} className="check--circle">{props.black ? <div className="dot"></div> : null}</div>
+                        <div>
+                            <div className="pledge--heading">
+                                <h5 onClick={props.handleBlack} style={{marginBottom: "18px", marginRight: "20px"}} className="select--pledge">Black Edition Stand</h5>
+                                <h5 style={{marginRight: "auto"}}>Pledge $75 or more</h5>
+                                <div>
+                                    <h3>64</h3>
+                                    <p>left</p>
+                                </div>
+                            </div>
+                            <p>
+                                You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer
+                                member list. Shipping is included.
+                            </p>
+                        </div>
+                    </div>
+                    { props.black ? <div className="choose--pledge--bottom">
+                        <p style={{marginRight: "auto"}}>Enter your pledge</p>
+                        <input 
+                            className="pledge--input"
+                            type="text"
+                            placeholder="$75"
+                        />
+                        <button onClick={props.handleComplete} >Continue</button>
+                    </div> : null}
+                </div>
+                <div className="choose--pledge trans choose--pledge--top">
                 <div className="pledge--overlay"></div>
                     <div className="check--circle"></div>
                     <div>
