@@ -8,7 +8,7 @@ body {
     font-family: 'Commissioner', sans-serif;
     font-weight: 500;
 }
-header {
+.desktop--header {
     width: 100%;
     background: linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
     padding: 40px 130px;
@@ -18,6 +18,13 @@ header {
     font-family: 'Commissioner', sans-serif;
     position: absolute;
     z-index: 999;
+}
+.mobile--header {
+    display: none;
+}
+a {
+    color: #f5f5f5;
+    text-decoration: none;
 }
 h1 {
     font-size: 1.75rem;
@@ -113,6 +120,9 @@ button:hover {
     padding: 0;
     display: flex;
     background-color: #f4f4f4;
+}
+.bookmark--mob {
+    display: none;
 }
 .bookmark--img {
     height: 20px;
@@ -375,4 +385,431 @@ h3 {
 }
 .trans {
     opacity: 0.3;
+}
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!MOBILE SITE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!MOBILE SITE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!MOBILE SITE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+@media (max-width: 1025px) {
+    .dexktop--header {
+        display: none;
+    }
+    .mobile--header {
+        width: 100%;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
+        padding: 40px 18px;
+        display: flex;
+        align-items: center;
+        color: #f5f5f5;
+        font-family: 'Commissioner', sans-serif;
+        position: absolute;
+        z-index: 999;
+    }
+    .menu {
+        cursor: pointer;
+        width: 28px;
+        height: 20px;
+        animation: rotate 0.4s ease-out;
+    }
+    .close {
+        cursor: pointer;
+        width: 28px;
+        height: auto;
+        animation: rotate 0.4s ease-out;
+    }
+    @keyframes rotate {
+        0% {
+            transform: scale(0.1, 0.1) rotate(180deg);
+        }
+        100% {
+            transform: scale(1, 1) rotate(360deg);
+        }
+    }
+    .dropdown {
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        top: 123.5px;
+        left: 0;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
+        color: black;
+        z-index: 2;
+    }
+    h1 {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: black;
+    }
+    .header--h1 {
+        margin-right: auto;
+        font-size: 2.25rem;
+        font-weight: 700;
+        color: #f5f5f5;
+    }
+    .nav--list {
+        width: 92%;
+        margin: auto;
+        background-color: white;
+        list-style: none;
+        display: block;
+        font-size: 1.7rem;
+        border-radius: 10px;
+    }
+    .nav--list > li {
+        width: 100%;
+        margin: 0;
+        padding: 30px 25px;
+        cursor: pointer;
+    }
+    .top--section {
+        width: 100%;
+        height: 380px;
+        background: url("./images//image-hero-desktop.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        z-index: 1;
+    }
+    .second--section {
+        width: 100%;
+        padding: 0 18px 100px;
+        background-color: #fafafa;
+        z-index: 1;
+    }
+    .each--box {
+        width: 100%;
+        padding: 50px 25px;
+        background-color: white;
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+        margin: 0 auto 26px;
+        color: hsl(0, 0%, 48%);
+        position: relative;
+        top: -70px;
+        z-index: 1;
+    }
+    .first--box {
+        text-align: center;
+        padding-top: 50px;
+    }
+    .mastercraft--logo {
+        position: absolute;
+        left: 50%;
+        top: -30px;
+        transform: translateX(-50%);
+    }
+    .master--h1 {
+        margin-bottom: 15px;
+    }
+    .back--project {
+        display: flex;
+        justify-content: center;
+        margin-top: 38px;
+    }
+    button {
+        width: fit-content;
+        height: fit-content;
+        padding: 17px 35px;
+        background-color: #3eb3ad;
+        border: none;
+        color: white;
+        border-radius: 30px;
+        font-family: 'Commissioner', sans-serif;
+        font-weight: 500;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #187970;
+    }
+    .icon--div {
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        background-color: #187970;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .bookmark {
+       display: none;
+    }
+    .bookmark--mob {
+        width: fit-content;
+        border-radius: 30px;
+        padding: 0;
+        display: flex;
+        background-color: #f4f4f4;
+    }
+    .btn {
+        margin-right: 20px;
+        width: 200px;
+    }
+    .bookmark--img {
+        height: 20px;
+        width: 17px;
+    }
+    .unbookmarked--img {
+        width: 50px;
+        height: 50px;
+    }
+    .bookmark--btn {
+        background-color: #f4f4f4;
+        border-radius: 30px;
+        color: hsl(0, 0%, 48%);
+        padding: 17px 30px 17px 10px;
+    }
+    .stats--box {
+        position: relative;
+    }
+    .plus--money {
+        position: absolute;
+        top: -20px;
+        color: #187970;
+        animation: vanish 15s ease;
+        opacity: 0;
+    }
+    @keyframes vanish {
+        0% {
+            transform: translateY(0) scale(0.9, 0.9);
+            opacity: 1;
+            display: block;
+        }
+        100% {
+            transform: translateY(-30px) scale(1.4, 1.4);
+            opacity: 0;
+            display: none;
+        }
+    }
+    .stats {
+        width: 100%;
+        display: block;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+    .stats--box2 {
+        width: fit-content;
+        padding: 30px 0 40px 0;
+        margin: 30px auto;
+        border-right: none;
+        border-left: none;
+        border-top: 1px solid #e2e8f0;
+        border-bottom: 1px solid #e2e8f0;
+    }
+    .stats--box > h3 {
+        font-size: 2.1rem;
+        color: black;
+        margin-bottom: 7px;
+    }
+    .progress {
+        width: 100%;
+        height: 12px;
+        -webkit-appearance: none;
+        appearance: none;
+    }
+    .progress::-webkit-progress-bar {
+        background-color: #f4f4f4;
+        border-radius: 10px;
+        box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
+    }
+    .progress::-webkit-progress-value {
+        background-color: #3eb3ad;
+        border-radius: 10px;
+    }
+    h2 {
+        font-size: 1.35rem;
+        font-weight: 700;
+        color: black;
+    }
+    .about--text {
+        line-height: 30px;
+        margin-bottom: 40px;
+    }
+    .pledge {
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+        padding: 40px 25px 30px;
+        margin-bottom: 20px;
+    }
+    .heading--div {
+        width: 100%;
+        display: block;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+    h4 {
+        width: fit-content;
+        margin-bottom: 10px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        color: black;
+    }
+    h5 {
+        width: fit-content;
+        font-weight: 700;
+        font-size: 1rem;
+        color: #3eb3ad;
+    }
+    .pledge--text {
+        line-height: 30px;
+        margin-top: 10px;
+        margin-bottom: 40px;
+    }
+    .count--div {
+        width: 100%;
+        display: block;
+        justify-content: space-between;
+        margin-top: 25px;
+    }
+    .count--div > div {
+        width: fit-content;
+        display: flex;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+    .count--div > div > p {
+        margin-left: 7px;
+    }
+    .pledge--btn {
+        padding: 13px 35px;
+        cursor: pointer;
+    }
+    h3 {
+        font-size: 2.1rem;
+        color: black;
+    }
+    .special--pledge {
+        position: relative;
+        opacity: 0.4;
+    }
+    .pledge--overlay {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: rgba(0, 0, 0, 0);
+    }
+    .outof--stock {
+        background-color: #cbcbcb;
+    }
+    .modal--overlay {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 120px 25px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 999;
+        overflow-y: scroll;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;
+    }
+    .modal--overlay::-webkit-scrollbar {
+        display: none;
+    }
+    .modal {
+        width: 100%;
+        background-color: white;
+        padding: 40px;
+        margin: auto;
+        border-radius: 10px;
+        color: hsl(0, 0%, 48%);
+        position: relative;
+    }
+    .modal--complete {
+        width: 500px;
+        background-color: white;
+        text-align: center;
+        padding: 40px;
+        margin: auto;
+        border-radius: 10px;
+        color: hsl(0, 0%, 48%);
+        position: relative;
+    }
+    .close--modal {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        cursor: pointer;
+    }
+    .choose--pledge {
+        width: 100%;
+        margin-top: 25px;
+        border: 2px solid #e2e8f0;
+        border-radius: 10px;
+        position: relative;
+    }
+    .choose--pledge--top {
+        width: 100%;
+        padding: 28px;
+        display: flex;
+        gap: 25px;
+        line-height: 25px;
+        position: relative;
+    }
+    .choose--pledge--bottom {
+        width: 100%;
+        padding: 28px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        border-top: 2px solid #e2e8f0;
+    }
+    .pledge--input {
+        width: 120px;
+        height: fit-content;
+        font-weight: 900;
+        padding: 17px 35px;
+        border: 1px solid #3eb3ad;
+        border-radius: 40px;
+        outline: #3eb3ad;
+    }
+    .pledge--input::placeholder {
+        font-weight: 900;
+        color: #cbcbcb;
+    }
+    .check--circle {
+        width: 48px;
+        height: 25px;
+        border-radius: 100%;
+        border: 1px solid #3eb3ad;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .dot {
+        width: 15px;
+        height: 15px;
+        border-radius: 15px;
+        background-color: #3eb3ad;
+    }
+    .select--pledge {
+        color: black;
+        cursor: pointer;
+    }
+    .select--pledge:hover {
+        color: #3eb3ad;
+    }
+    .pledge--heading {
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+    }
+    .pledge--heading > div {
+        width: fit-content;
+        display: flex;
+        align-items: center;
+    }
+    .pledge--heading > div > p {
+        margin-left: 7px;
+    }
+    .pledge--heading > div > h3 {
+        font-size: 1.2rem;
+        color: black;
+    }
+    .trans {
+        opacity: 0.3;
+    }
 }

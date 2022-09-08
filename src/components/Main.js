@@ -216,7 +216,7 @@ export default function Main() {
                 <div className="each--box first--box">
                     <img className="mastercraft--logo" alt="" src={mastercraft}/>
                     <h1 className="master--h1">Mastercraft Bamboo Monitor Riser</h1>
-                    <p>A beautiful & handcrafted monitor stand to reduce neck and eye strain.</p>
+                    <p style={{lineHeight: "25px"}}>A beautiful & handcrafted monitor stand to reduce neck and eye strain.</p>
                     <div className="back--project">
                         <button className="btn" onClick={handleModal}>Back this project</button>
                         <div className="bookmark">
@@ -224,6 +224,11 @@ export default function Main() {
                                 {bookmark ? <img className="bookmark--img" alt="" src={bookmarkedIcon}/> : <img className="unbookmarked--img" alt="" src={bookmarkIcon}/>}
                             </div>
                             {bookmark ? <div style={teal} className="bookmark--btn">Bookmarked</div> : <div className="bookmark--btn">Bookmark</div>}
+                        </div>
+                        <div className="bookmark--mob">
+                            <div className="icon--div">
+                                {bookmark ? <img className="bookmark--img" alt="" src={bookmarkedIcon}/> : <img className="unbookmarked--img" alt="" src={bookmarkIcon}/>}
+                            </div>
                         </div>
                     </div>
                 </div>
