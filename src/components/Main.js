@@ -254,7 +254,7 @@ export default function Main() {
                             <p>of $100,000 backed</p>
                         </div>
                         <div className="stats--box stats--box2">
-                            { bambooInput.pledge > 0 && <div className="plus--money" style={{position: "absolute", top: "13px"}}>+1</div>}
+                            { bambooInput.pledge > 0 && <div className="plus--money" style={{position: "absolute", top: "10px"}}>+1</div>}
                             { blackBambooInput.blackPledge > 0 && <div className="plus--money">+1</div>}
                             <h3>{backed}</h3>
                             <p>total backers</p>
