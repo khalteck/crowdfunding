@@ -20,7 +20,7 @@ export default function Header() {
     }
     return (
         <header>
-            <div className="dexktop--header">
+            <div className="desktop--header">
                 <h1 className="header--h1"><a href="index.html">crowdfund</a></h1>
                 <ul className="nav--list">
                     <li>About</li>
