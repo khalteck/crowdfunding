@@ -7,6 +7,8 @@ import Modal from "./Modal"
 import ModalComplete from "./Modal-complete"
 
 export default function Main() {
+
+
     //to set the bookmarked indicator
     const [bookmark, setBookmark] = useState(false)
 
@@ -22,6 +24,7 @@ export default function Main() {
         marginBottom: "40px"
     }
 
+
     //to toggle the modal
     const [openModal, setOpenModal] = useState(false)
 
@@ -29,14 +32,31 @@ export default function Main() {
         setOpenModal(prevState => !prevState)
         setBamboo(false)
         setBlack(false)
+        setBambooInput(prevState => {
+            return {
+                ...prevState,
+                pledge: ""
+            }
+        })
+        setBlackBambooInput(prevState => {
+            return {
+                ...prevState,
+                blackPledge: ""
+            }
+        })
     }
 
-    //to bring up the thank you moday
+
+    //to bring up the thank you modal without pledging money
     const [openModalComplete, setOpenModalComplete] = React.useState(false)
     function handleModalComplete() {
         setOpenModalComplete(prevState => !prevState)
         setOpenModal(prevState => !prevState)
+        setBacked((count) => {
+            return count + 1
+        })
     }
+
 
     //to select bamboo stand and pledge $25
     const [bamboo, setBamboo] = React.useState(false)
@@ -45,6 +65,7 @@ export default function Main() {
         setBlack(false)
     }
 
+
     //to select black edition stand and pledge $75
     const [black, setBlack] = React.useState(false)
     function handleBlack() {
@@ -52,19 +73,47 @@ export default function Main() {
         setBamboo(false)
     }
 
+
     //when the bamboo select reward is clicked
     function selectBamboo() {
         setOpenModal(prevState => !prevState)
         setBamboo(prevState => !prevState)
         setBlack(false)
+        setBambooInput(prevState => {
+            return {
+                ...prevState,
+                pledge: ""
+            }
+        })
+        setBlackBambooInput(prevState => {
+            return {
+                ...prevState,
+                blackPledge: ""
+            }
+        })
     }
+
 
     //when the black edition select reward is clicked
     function selectBlack() {
         setOpenModal(prevState => !prevState)
         setBlack(prevState => !prevState)
         setBamboo(false)
+        setBambooInput(prevState => {
+            return {
+                ...prevState,
+                pledge: ""
+            }
+        })
+        setBlackBambooInput(prevState => {
+            return {
+                ...prevState,
+                blackPledge: ""
+            }
+        })
     }
+
+
 
     //to pledge $25 or above and increase the backed count by 1 and increase total money raised by the value
     const [backed, setBacked] = React.useState(5007)
@@ -72,7 +121,7 @@ export default function Main() {
     const [totalBambooLeft, setTotalBambooLeft] = React.useState(101)
 
     const [bambooInput, setBambooInput] = React.useState({
-        pledge: 25
+        pledge: ""
     })
     const changeMoney = (event) => {
         const {name, value} = event.target
@@ -92,16 +141,18 @@ export default function Main() {
             return count + 1
         })
         setTotalRaised((amount) => {
-            return parseInt(amount) + parseInt(bambooInput.pledge)
+            return bambooInput.pledge ? parseInt(amount) + parseInt(bambooInput.pledge) : parseInt(amount)
         })
         setOpenModalComplete(prevState => !prevState)
         setOpenModal(prevState => !prevState)
     }
 
+
+
     //to pledge $75 or above and increase the backed count by 1 and increase total money raised by the value
     const [totalBlackLeft, setTotalBlackLeft] = React.useState(64)
     const [blackBambooInput, setBlackBambooInput] = React.useState({
-        blackPledge: 75
+        blackPledge: ""
     })
     const changeBlackMoney = (event) => {
         const {name, value} = event.target
@@ -121,11 +172,14 @@ export default function Main() {
             return count + 1
         })
         setTotalRaised((amount) => {
-            return parseInt(amount) + parseInt(blackBambooInput.blackPledge)
+            return blackBambooInput.blackPledg ? parseInt(amount) + parseInt(blackBambooInput.blackPledge) : parseInt(amount)
         })
         setOpenModalComplete(prevState => !prevState)
         setOpenModal(prevState => !prevState)
     }
+
+
+
     return (
         <main>
             <section className="top--section"></section>
@@ -177,10 +231,24 @@ export default function Main() {
                 <div className="each--box">
                     <div className="stats">
                         <div className="stats--box">
+                            { 
+                                bambooInput.pledge > 0 && 
+                                <div className="plus--money">
+                                    + ${bambooInput.pledge}
+                                </div>
+                            }
+                            { 
+                                blackBambooInput.blackPledge > 0 &&
+                                <div className="plus--money">
+                                    + ${blackBambooInput.blackPledge}
+                                </div>
+                            }
                             <h3>${totalRaised}</h3>
                             <p>of $100,000 backed</p>
                         </div>
                         <div className="stats--box stats--box2">
+                            { bambooInput.pledge > 0 && <div className="plus--money">+1</div>}
+                            { blackBambooInput.blackPledge > 0 && <div className="plus--money">+1</div>}
                             <h3>{backed}</h3>
                             <p>total backers</p>
                         </div>
