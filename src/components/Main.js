@@ -174,7 +174,7 @@ export default function Main() {
             return count + 1
         })
         setTotalRaised((amount) => {
-            return blackBambooInput.blackPledg ? parseInt(amount) + parseInt(blackBambooInput.blackPledge) : parseInt(amount)
+            return blackBambooInput.blackPledge ? parseInt(amount) + parseInt(blackBambooInput.blackPledge) : parseInt(amount)
         })
         setOpenModalComplete(prevState => !prevState)
         setOpenModal(prevState => !prevState)
