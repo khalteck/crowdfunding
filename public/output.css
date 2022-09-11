@@ -786,6 +786,7 @@ h3 {
     }
     .choose--pledge--bottom--mobile > div {
         display: flex;
+        justify-content: center;
         gap: 20px;
     }
     .pledge--input {
